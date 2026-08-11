@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nanda Kumar — Professor of Marketing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper: #ECE7D9;
+    --paper-card: #E2DBC7;
+    --ink: #1B241F;
+    --ink-soft: #4A5249;
+    --pine: #24453A;
+    --pine-deep: #16302A;
+    --gold: #9C7A28;
+    --line: #C6BCA1;
+    --line-soft: #D8D0BA;
+    --max: 1120px;
+  }
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{ margin:0; background: var(--paper); color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  ::selection{ background: var(--gold); color: var(--paper); }
+  a{ color: var(--pine); }
+  .eyebrow{ font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); }
+  h1, h2, h3{ font-family: 'Fraunces', serif; font-weight: 600; color: var(--pine-deep); margin: 0; }
+
+  header.site-nav{ position: sticky; top: 0; z-index: 50; background: rgba(236,231,217,0.92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); }
+  .nav-inner{ max-width: var(--max); margin: 0 auto; padding: 16px 28px; display: flex; align-items: baseline; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .nav-name{ font-family: 'Fraunces', serif; font-weight: 700; font-size: 1.05rem; color: var(--pine-deep); white-space: nowrap; }
+  nav.links{ display: flex; gap: 16px; flex-wrap: wrap; }
+  nav.links a{ font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; text-decoration: none; color: var(--ink-soft); padding-bottom: 3px; border-bottom: 1px solid transparent; transition: border-color 0.2s ease, color 0.2s ease; }
+  nav.links a:hover{ color: var(--pine-deep); border-color: var(--gold); }
+
+  .wrap{ max-width: var(--max); margin: 0 auto; padding: 0 28px; }
+  section{ padding: 64px 0; border-bottom: 1px solid var(--line-soft); }
+  section:last-of-type{ border-bottom: none; }
+  .section-grid{ display: grid; grid-template-columns: 1fr 220px; gap: 40px; align-items: start; }
+  .section-main{ min-width: 0; }
+  .margin-note{ font-family: 'Caveat', cursive; font-size: 1.2rem; line-height: 1.35; color: var(--gold); transform: rotate(-1.4deg); padding-top: 6px; position: relative; }
+  .margin-note::before{ content: ""; position: absolute; left: -14px; top: 4px; bottom: 4px; width: 2px; background: var(--line); }
+  @media (max-width: 860px){
+    .section-grid{ grid-template-columns: 1fr; }
+    .margin-note{ transform: none; border-left: 2px solid var(--line); padding-left: 14px; margin-top: 18px; }
+    .margin-note::before{ display:none; }
+  }
+
+  .hero{ padding-top: 60px; }
+  .cover-sheet{ background: var(--paper-card); border: 1px solid var(--line); border-radius: 2px; padding: 40px 40px 36px; position: relative; opacity: 0; transform: translateY(10px); animation: rise 0.7s ease forwards; }
+  @keyframes rise{ to{ opacity:1; transform: translateY(0); } }
+  @media (prefers-reduced-motion: reduce){ .cover-sheet{ animation: none; opacity: 1; transform: none; } }
+  .cover-top{ display:flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 14px; border-bottom: 1px dashed var(--line); padding-bottom: 16px; margin-bottom: 20px; }
+  .stamp{ font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; letter-spacing: 0.08em; color: var(--pine); border: 1px solid var(--pine); padding: 5px 10px; border-radius: 2px; transform: rotate(-2deg); white-space: nowrap; }
+  .hero h1{ font-size: clamp(2.1rem, 4.4vw, 3.2rem); line-height: 1.08; margin-bottom: 8px; }
+  .hero .role{ font-size: 1.02rem; color: var(--ink-soft); font-style: italic; margin-bottom: 6px; }
+  .hero .locline{ font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--ink-soft); margin-bottom: 20px; }
+  .hero-flex{ display:flex; gap: 36px; align-items: flex-start; }
+  .hero-text{ flex: 1; min-width: 0; }
+  .hero-photo{ flex-shrink: 0; width: 168px; }
+  .hero-photo img{ width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 4px; border: 1px solid var(--line); box-shadow: 0 12px 26px -14px rgba(22,48,42,0.45); }
+  @media (max-width: 700px){
+    .hero-flex{ flex-direction: column-reverse; }
+    .hero-photo{ width: 130px; }
+  }
+  .abstract-label{ font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); display:block; margin-bottom: 8px; }
+  .hero .abstract{ max-width: 680px; font-size: 1.02rem; }
+  .tags{ display:flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+  .tag{ font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.04em; padding: 5px 10px; border: 1px solid var(--line); border-radius: 20px; color: var(--pine-deep); background: var(--paper); }
+
+  .section-head{ display:flex; align-items: baseline; gap: 14px; margin-bottom: 30px; }
+  .section-head .num{ font-family: 'IBM Plex Mono', monospace; color: var(--gold); font-size: 0.85rem; }
+  .section-head h2{ font-size: 1.6rem; }
+  .subhead{ font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin: 26px 0 14px; }
+  .subhead:first-of-type{ margin-top: 0; }
+
+  .ms-card{ border: 1px solid var(--line); background: var(--paper-card); border-radius: 2px; padding: 18px 22px; margin-bottom: 14px; transition: box-shadow 0.2s ease, transform 0.2s ease; }
+  .ms-card:hover{ box-shadow: 0 8px 22px -12px rgba(22,48,42,0.35); transform: translateY(-2px); }
+  .ms-top{ display:flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; align-items: baseline; }
+  .ms-title{ font-family:'Fraunces', serif; font-weight: 600; font-size: 1.06rem; color: var(--pine-deep); }
+  .status{ font-family: 'IBM Plex Mono', monospace; font-size: 0.63rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 9px; border-radius: 20px; white-space: nowrap; }
+  .status.review{ background: #E4D9BE; color: #6B4F14; }
+  .status.prep{ background: #DCE4DA; color: var(--pine-deep); }
+  .status.progress{ background: #E7DED0; color: var(--ink-soft); }
+  .ms-authors{ font-size: 0.9rem; color: var(--ink-soft); margin-top: 5px; }
+
+  .pub-list{ list-style: none; padding: 0; margin: 0; counter-reset: pub; }
+  .pub-list li{ counter-increment: pub; padding: 13px 0 13px 34px; border-bottom: 1px dotted var(--line); position: relative; font-size: 0.95rem; }
+  .pub-list li::before{ content: counter(pub) "."; position: absolute; left: 0; top: 13px; font-family: 'IBM Plex Mono', monospace; color: var(--gold); font-size: 0.82rem; }
+  .pub-list .p-title{ font-family: 'Fraunces', serif; font-weight: 500; color: var(--pine-deep); }
+  .pub-list .p-meta{ color: var(--ink-soft); font-size: 0.88rem; }
+  .lead-tag{ font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold); border-radius: 20px; padding: 1px 7px; margin-left: 6px; }
+
+  .talk-list{ list-style: none; padding: 0; margin: 0; }
+  .talk-list li{ padding: 9px 0; border-bottom: 1px dotted var(--line); font-size: 0.92rem; }
+  .talk-list .t-venue{ color: var(--ink-soft); }
+
+  .teach-item{ margin-bottom: 20px; }
+  .teach-item h3{ font-size: 1.02rem; margin-bottom: 4px; }
+  .teach-item p{ margin: 0; font-size: 0.94rem; color: var(--ink-soft); }
+
+  .advise-count{ font-family: 'Fraunces', serif; font-size: 2.4rem; color: var(--pine-deep); line-height: 1; }
+  .advise-count + span{ font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); }
+  .student-list{ margin-top: 18px; display:flex; flex-direction: column; gap: 8px; }
+  .student-row{ display:grid; grid-template-columns: 1fr 100px 1fr; align-items: center; gap: 12px; font-size: 0.93rem; padding: 9px 0; border-bottom: 1px dotted var(--line); }
+  .student-row .role{ color: var(--gold); font-family: 'IBM Plex Mono', monospace; font-size: 0.66rem; letter-spacing: 0.05em; text-transform: uppercase; }
+  .student-row .placement{ color: var(--ink-soft); font-size: 0.88rem; text-align: right; }
+  .student-row.header{ font-family: 'IBM Plex Mono', monospace; font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); border-bottom: 1px solid var(--line); padding-bottom: 8px; }
+  .student-row.header .placement{ text-align: right; }
+  @media (max-width: 600px){
+    .student-row{ grid-template-columns: 1fr; gap: 2px; }
+    .student-row .placement{ text-align: left; }
+  }
+
+  .edu-row{ display:flex; gap: 18px; padding: 11px 0; border-bottom: 1px dotted var(--line); flex-wrap: wrap; }
+  .edu-row .deg{ font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--gold); min-width: 150px; }
+
+  .honors-list, .service-list{ list-style: none; padding: 0; margin: 0; }
+  .honors-list li, .service-list li{ padding: 9px 0; border-bottom: 1px dotted var(--line); font-size: 0.93rem; }
+  .honors-list .h-year{ font-family: 'IBM Plex Mono', monospace; color: var(--gold); font-size: 0.75rem; margin-right: 8px; }
+
+  .two-col{ display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+  @media (max-width: 700px){ .two-col{ grid-template-columns: 1fr; } }
+
+  footer{ background: var(--pine-deep); color: #E7E2D2; padding: 52px 0 36px; }
+  footer .wrap{ display:flex; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+  footer h2{ color: #E7E2D2; font-size: 1.4rem; }
+  footer a{ color: #E7E2D2; text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 4px; }
+  footer .meta{ font-family: 'IBM Plex Mono', monospace; font-size: 0.8rem; line-height: 2; color: #C9C4AE; }
+  footer .foot-note{ font-family: 'IBM Plex Mono', monospace; font-size: 0.66rem; color: #7C8880; margin-top: 26px; }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-name">Nanda Kumar</div>
+    <nav class="links">
+      <a href="#employment">Employment</a>
+      <a href="#education">Education</a>
+      <a href="#honors">Honors &amp; Service</a>
+      <a href="#publications">Publications</a>
+      <a href="#research">Research</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#advising">Advising</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="cover-sheet">
+      <div class="hero-flex">
+        <div class="hero-text">
+          <h1>Nanda Kumar</h1>
+          <p class="role">Professor of Marketing, Naveen Jindal School of Management, University of Texas at Dallas</p>
+          <span class="abstract-label">Biography</span>
+          <p class="abstract">Nanda Kumar is a Professor of Marketing at the Naveen Jindal School of Management, University of Texas at Dallas, where he has been on the faculty since 1999. He earned his Ph.D. from the University of Chicago Graduate School of Business in 2000, following an M.S. in Computer Science from the University of Maryland and a B.Tech. in Computer Science and Technology from the Indian Institute of Engineering Science and Technology, Shibpur. His research builds analytical and empirical models of competitive strategy, pricing, channels of distribution, and advertising, with work spanning supermarket pricing and promotions, product bundling, loyalty programs, and luxury and platform markets. His research has appeared in <em>Marketing Science, Management Science, Journal of Marketing Research, Quantitative Marketing and Economics, Information Systems Research, Journal of Retailing,</em> and <em>Journal of Economic Theory</em>. He has served on the editorial board of <em>Marketing Science</em> and as an ad-hoc associate editor for <em>Management Science</em>, and has advised eight completed doctoral students across Marketing and Information Systems. Alongside his role at UTD, he is active in executive education at the Indian School of Business.</p>
+          <div class="tags">
+            <span class="tag">Competitive Strategy</span>
+            <span class="tag">Channels of Distribution</span>
+            <span class="tag">Pricing &amp; Promotions</span>
+            <span class="tag">Advertising</span>
+            <span class="tag">Retailing</span>
+            <span class="tag">Loyalty Programs</span>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <img src="nanda-kumar.jpg" alt="Nanda Kumar">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="employment">
+  <div class="wrap section-grid">
+    <div class="section-main">
+      <div class="section-head"><span class="num">01</span><h2>Employment History</h2></div>
+      <div class="edu-row"><span class="deg">2016–current</span><span>Full Professor of Marketing, School of Management, UTD</span></div>
+      <div class="edu-row"><span class="deg">2006–16</span><span>Associate Professor of Marketing, School of Management, UTD</span></div>
+      <div class="edu-row"><span class="deg">1999–06</span><span>Assistant Professor of Marketing, School of Management, UTD</span></div>
+      <div class="edu-row"><span class="deg">1994–99</span><span>Teaching Assistant, University of Chicago — Marketing Management, Marketing Channels, Pricing, Regression Analysis, Marketing Research</span></div>
+      <div class="edu-row"><span class="deg">1992–94</span><span>Consultant, Seta Corporation, McLean, VA</span></div>
+      <div class="edu-row"><span class="deg">1990–92</span><span>Instructor, University of Maryland — Introduction to Computer Science; Programming in C</span></div>
+    </div>
+    <aside class="margin-note">started out teaching C — now I mostly debug seminar Q&amp;A</aside>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap section-grid">
+    <div class="section-main">
+      <div class="section-head"><span class="num">02</span><h2>Education</h2></div>
+      <div class="edu-row"><span class="deg">PhD, 2000</span><span>University of Chicago, Graduate School of Business — Committee: Duncan Simester (co-chair), Surendra Rajiv (co-chair), Abel Jeuland, Eric Anderson, Pradeep Chintagunta</span></div>
+      <div class="edu-row"><span class="deg">MS, Computer Science</span><span>University of Maryland</span></div>
+      <div class="edu-row"><span class="deg">B.Tech (First Class)</span><span>Computer Science and Technology, Indian Institute of Engineering Science and Technology, Shibpur, India</span></div>
+    </div>
+    <aside class="margin-note">computer science first, marketing second — it shows in the modeling</aside>
+  </div>
+</section>
+
+<section id="honors">
+  <div class="wrap section-grid">
+    <div class="section-main">
+      <div class="section-head"><span class="num">03</span><h2>Honors &amp; Service</h2></div>
+      <div class="two-col">
+        <div>
+          <div class="subhead">Honors &amp; Awards</div>
+          <ul class="honors-list">
+            <li><span class="h-year">2022</span>OWLIE Award for Outstanding Ph.D. Faculty Member, School of Management, UTD</li>
+            <li><span class="h-year">2003</span>Outstanding Graduate Teaching Award, School of Management, UTD</li>
+            <li><span class="h-year">2001</span>Honorable Mention, Davidson Award — <em>Journal of Retailing</em></li>
+            <li><span class="h-year">1997</span>AMA Doctoral Consortium Fellow, University of Cincinnati</li>
+            <li><span class="h-year">1994–97</span>University of Chicago Fellowship</li>
+            <li><span class="h-year">1991–92</span>Graduate Research and Teaching Scholarship, University of Maryland</li>
+            <li><span class="h-year">1983–90</span>National Talent Search Scholarship, NCERT, India</li>
+          </ul>
+        </div>
+        <div>
+          <div class="subhead">Editorial Activities</div>
+          <ul class="service-list">
+            <li>Editorial Board, <em>Marketing Science</em> (Past)</li>
+            <li>Editorial Board, <em>Review of Marketing Science</em></li>
+            <li>Editorial Board, <em>International Journal of Operations Research and Information Systems</em></li>
+            <li>Ad-hoc Associate Editor, <em>Management Science</em></li>
+            <li>Ad-hoc reviewer — <em>Management Science, Journal of Marketing, Journal of Marketing Research, Journal of Retailing, Annals of Operations Research, Operations Research, International Journal of Research in Marketing, Canadian Journal of Administrative Science</em></li>
+          </ul>
+          <div class="subhead">Service &amp; Administration</div>
+          <ul class="service-list">
+            <li>Chair &amp; Organizer, UTD Bass FORMS Conference (2011, 2020, 2021)</li>
+            <li>Area Coordinator, Marketing Group (2006–08, 2015–20)</li>
+            <li>Ph.D. Coordinator, Marketing Group (2003–06)</li>
+            <li>Chair, Promotions to Full Professor; Chair, Mid-Probationary Review committees</li>
+            <li>Member, Academic Senate Committee; Member, Faculty Grievance Committee</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <aside class="margin-note">member, TIMS &amp; ORSA</aside>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="wrap section-grid">
+    <div class="section-main">
+      <div class="section-head"><span class="num">04</span><h2>Published Work</h2></div>
+      <ul class="pub-list">
+        <li><span class="p-title">Effective Category Management Depends on the Role of the Category</span><span class="lead-tag">Lead Article</span><br><span class="p-meta">with Sanjay Dhar and Steve Hoch — <em>Journal of Retailing</em>, v77, Summer 2001, pp. 165–184</span></li>
+        <li><span class="p-title">Effectiveness of Trade Promotions: Analyzing the Determinants of Retail Pass Through</span><span class="lead-tag">Lead Article</span><br><span class="p-meta">with Surendra Rajiv and Abel Jeuland — <em>Marketing Science</em>, v20, Fall 2001, pp. 382–404</span></li>
+        <li><span class="p-title">Comment on Revisiting Dynamic Duopoly with Consumer Switching Costs</span><br><span class="p-meta">with Eric Anderson and Surendra Rajiv — <em>Journal of Economic Theory</em>, v116, n1, 2004, pp. 177–186</span></li>
+        <li><span class="p-title">Using Basket Information for Intelligent Supermarket Pricing</span><br><span class="p-meta">with Ram Rao — <em>Marketing Science</em>, v25, n2, 2006, pp. 188–199</span></li>
+        <li><span class="p-title">On Complementing the Retail Channel with a Direct Online Channel</span><br><span class="p-meta">with Ranran Ruan — <em>Quantitative Marketing and Economics</em>, September 2006, pp. 289–323</span></li>
+        <li><span class="p-title">On Customized Products, Standard Products and Competition</span><br><span class="p-meta">with Niladri Syam — <em>Marketing Science</em>, v25, n5, 2006, pp. 525–537</span></li>
+        <li><span class="p-title">Price Competition with Repeat, Loyal Buyers</span><br><span class="p-meta">with Eric Anderson — <em>Quantitative Marketing and Economics</em>, n5, 2007, pp. 333–359</span></li>
+        <li><span class="p-title">Private Label Vendor Selection in a Supply Chain: Quality and Clientele Effects</span><br><span class="p-meta">with Suresh Radhakrishnan and Ram C. Rao — <em>Journal of Retailing</em>, v86, n2, June 2010, pp. 148–158</span></li>
+        <li><span class="p-title">Pricing Models for Online Advertising: CPM versus CPC</span><br><span class="p-meta">with Kursad Asdemir and Varghese S. Jacob — <em>Information Systems Research</em>, v23, n3 (Pt. 1), September 2012, pp. 804–822</span></li>
+        <li><span class="p-title">Content Provision Strategies in the Presence of Peer-to-Peer Networks</span><br><span class="p-meta">with Monica Johar and Vijay Mookerjee — <em>Information Systems Research</em>, v23, n3 (Pt. 2), September 2012, pp. 960–975</span></li>
+        <li><span class="p-title">Consumer Stockpiling and Competitive Promotional Strategies</span><span class="lead-tag">Lead Article</span><br><span class="p-meta">with Manish Gangwar and Ram C. Rao — <em>Marketing Science</em>, v33, n1, 2014, pp. 94–113</span></li>
+        <li><span class="p-title">Price Matching Guarantee with Endogenous Consumer Search</span><br><span class="p-meta">with Juncai Jiang and Brian Ratchford — <em>Management Science</em>, v63, n10, 2017, pp. 3489–3513</span></li>
+        <li><span class="p-title">Product Line Bundling: Why Airlines Bundle High End and Hotels Bundle Low End</span><br><span class="p-meta">with Steve Shugan, Jihwan Moon and Qiaoni Shi — <em>Marketing Science</em>, v36, n1, 2017, pp. 124–139</span></li>
+        <li><span class="p-title">Emerging Trends in Product Bundling: Investigating Consumer Choice and Firm Behavior</span><br><span class="p-meta">with Vithala Rao, Gary Russell, Hemant Bhargava, Alan Cooke, Tim Derdenger, Hwang Kim, Irwin Lewin, Yu Ma, Nitin Mehta, John Pracejus and R. Venkatesh — <em>Customer Needs and Solutions</em>, v5, n1, 2018, pp. 107–120</span></li>
+        <li><span class="p-title">Effect of Appeal Content on Fundraising Success and Donor Behavior</span><br><span class="p-meta">with Juncai Jiang, Sriharsha Kamatham and Parneet Pahwa — <em>Journal of Business Research</em>, v125, March 2021, pp. 827–839</span></li>
+        <li><span class="p-title">Should Managers Care about Intra-household Heterogeneity?</span><br><span class="p-meta">with Parneet Pahwa and BPS. Murthi — INFORMS International Conference on Service Science, 2021, pp. 23–30</span></li>
+        <li><span class="p-title">Pricing Under Dynamic Competition When Loyal Consumers Stockpile</span><br><span class="p-meta">with Manish Gangwar and Ram Rao — <em>Marketing Science</em>, v40, n3, 2021, pp. 569–588</span></li>
+        <li><span class="p-title">Modelling Heterogeneity in Choice Models: Household Level vs Intra-Household Heterogeneity in Reference Price Effects</span><br><span class="p-meta">with Parneet Pahwa and BPS. Murthi — National Brand and Private Label Marketing Conference, 2023, pp. 3–12</span></li>
+        <li><span class="p-title">Multihoming Alliances and Price Competition</span><br><span class="p-meta">with Abhinav Uppal and Manish Gangwar — <em>Journal of Marketing Research</em>, v64, n3, 2025, pp. 464–480</span></li>
+        <li><span class="p-title">Who's Really Shopping? Individual and Household Reference Prices and the Cost of Getting it Wrong</span><br><span class="p-meta"><em>Journal of Retailing</em>, doi.org/10.1016/j.jretai.2026.04.001</span></li>
+      </ul>
+
+      <div class="subhead">Selected Talks &amp; Conference Presentations</div>
+      <ul class="talk-list">
+        <li><span class="p-title">Retail Bundling of Competing Manufacturers' Products: Should Manufacturers Worry?</span> — <span class="t-venue">Indian School of Business, 2024</span></li>
+        <li><span class="p-title">Retail Bundling of Competing Manufacturers' Products: Should Manufacturers Worry?</span> — <span class="t-venue">IIM Udaipur, 2024</span></li>
+        <li><span class="p-title">Retail Bundling of Competing Manufacturers' Products: Should Manufacturers Worry?</span> — <span class="t-venue">Pricing Symposium, London Business School, 2023</span></li>
+        <li><span class="p-title">Influencers: The Power of Comments</span> (invited discussant) — <span class="t-venue">SICS Conference, Berkeley, 2023</span></li>
+        <li><span class="p-title">North American Society of Marketing Education in India Conference</span> — <span class="t-venue">Great Lakes Institute for Management, Dec 2022</span></li>
+        <li><span class="p-title">Economics of Jailbreak</span> — <span class="t-venue">Marketing Science Conference, Roma Tre University, 2019</span></li>
+        <li><span class="p-title">Unintended Consequences of Promotions: Stockpiling by Opportunistic Loyals</span> — <span class="t-venue">Indian Institute of Management, Bangalore, 2017</span></li>
+        <li><span class="p-title">Behavioral Targeting</span> (invited speaker) — <span class="t-venue">UTD Bass FORMS Conference, 2014</span></li>
+      </ul>
+    </div>
+    <aside class="margin-note">every paper needs at least one co-author to argue about a Greek letter</aside>
+  </div>
+</section>
+
+<section id="research">
+  <div class="wrap section-grid">
+    <div class="section-main">
+      <div class="section-head"><span class="num">05</span><h2>Research in Progress</h2></div>
+
+      <div class="subhead">Working Papers</div>
+      <div class="ms-card">
+        <div class="ms-top"><span class="ms-title">Bundling Rivals: Manufacturer vs Retailer Bundling in Distribution Channels</span><span class="status review">Under Review · Marketing Science</span></div>
+        <p class="ms-authors">with Samir Mamadehussene and Vithala Rao</p>
+      </div>
+      <div class="ms-card">
+        <div class="ms-top"><span class="ms-title">Strategic Competition in Two Currencies: Dollars and Points</span><span class="status prep">To be submitted · Management Science</span></div>
+        <p class="ms-authors">with Anmol Madan and Chakravarthi Narasimhan</p>
+      </div>
+      <div class="ms-card">
+        <div class="ms-top"><span class="ms-title">Managing Competition</span><span class="status prep">To be submitted · Marketing Science</span></div>
+        <p class="ms-authors">with Ram Rao and David Richardson</p>
+      </div>
+      <div class="ms-card">
+        <div class="ms-top"><span class="ms-title">Fit and Counterfeit: How Fakes Can Increase Luxury Brand Profits</span></div>
+        <p class="ms-authors">with David Richardson</p>
+      </div>
+      <div class="ms-card">
+        <div class="ms-top"><span class="ms-title">Product Replacement and the Timing of Sales in Durable Good Markets</span></div>
+        <p class="ms-authors">with David Richardson</p>
+      </div>
+      <div class="ms-card">
+        <div class="ms-top"><span class="ms-title">Mobile Platform Openness and Jailbreaking: A Strategic Analysis</span><span class="status review">R&amp;R · Production and Operations Management</span></div>
+        <p class="ms-authors">with Juncai Jiang</p>
+      </div>
+
+      <div class="subhead">Work in Progress</div>
+      <div class="ms-card">
+        <div class="ms-top"><span class="ms-title">On the Role of Certification and Price Signaling in Sustainable Product Markets</span><span class="status progress">Analysis in Progress</span></div>
+        <p class="ms-authors">with Taewook Lim (doctoral student)</p>
+      </div>
+      <div class="ms-card">
+        <div class="ms-top"><span class="ms-title">Why are Pre-owned Rolexes (Luxury Goods) Priced Higher Than Their Brand New Counterparts?</span><span class="status progress">Analysis in Progress</span></div>
+        <p class="ms-authors">with Abhinav Uppal and Manish Gangwar</p>
+      </div>
+      <div class="ms-card">
+        <div class="ms-top"><span class="ms-title">On Try before you Buy</span><span class="status progress">Analysis in Progress</span></div>
+        <p class="ms-authors">with Ahmed Timoumi</p>
+      </div>
+    </div>
+    <aside class="margin-note">most of these live in Overleaf half-finished at any given moment</aside>
+  </div>
+</section>
+
+<section id="teaching">
+  <div class="wrap section-grid">
+    <div class="section-main">
+      <div class="section-head"><span class="num">06</span><h2>Teaching &amp; Executive Education</h2></div>
+      <div class="teach-item">
+        <h3>Teaching Interests</h3>
+        <p>Marketing Management (Indian School of Business; Booth Chicago Executive MBA), Customer Analytics and Insights, Database Marketing, Marketing Channels, Pricing (INSEAD Fontainebleau &amp; Singapore; ISB), Sales Management (ISB, MFAB).</p>
+      </div>
+      <div class="teach-item">
+        <h3>Chief Growth Marketing Officer Programme, ISB</h3>
+        <p>Modules on Advertising and Media Management and Omnichannel Retailing.</p>
+      </div>
+      <div class="teach-item">
+        <h3>Continuing Education Programme, ISB</h3>
+        <p>Module on Omnichannel Retailing.</p>
+      </div>
+      <div class="teach-item">
+        <h3>Retailing and Channels (RTCH / RTLG) &amp; India Business Leadership Series</h3>
+        <p>Elective and executive sessions at ISB covering channel strategy, omnichannel retailing, regression and analytics, and attribution modeling.</p>
+      </div>
+    </div>
+    <aside class="margin-note">half my students think "elasticity" is a yoga term</aside>
+  </div>
+</section>
+
+<section id="advising">
+  <div class="wrap section-grid">
+    <div class="section-main">
+      <div class="section-head"><span class="num">07</span><h2>Doctoral Advising</h2></div>
+      <div><span class="advise-count">8</span><span> completed doctoral students advised</span></div>
+      <div class="subhead">Marketing</div>
+      <div class="student-list">
+        <div class="student-row header"><span>Name</span><span>Role</span><span class="placement">First Job Placement</span></div>
+        <div class="student-row"><span>Ranran Ruan</span><span class="role">Co-chair</span><span class="placement">University of Houston</span></div>
+        <div class="student-row"><span>Manish Gangwar</span><span class="role">Chair</span><span class="placement">Indian School of Business</span></div>
+        <div class="student-row"><span>Richard Davidson</span><span class="role">Co-chair</span><span class="placement">Illinois Institute of Technology</span></div>
+        <div class="student-row"><span>Juncai Jiang</span><span class="role">Chair</span><span class="placement">Virginia Tech</span></div>
+        <div class="student-row"><span>Parneet Pahwa</span><span class="role">Co-chair</span><span class="placement">Naveen Jindal School of Management</span></div>
+        <div class="student-row"><span>Sriharsha Kamatham</span><span class="role">Co-chair</span><span class="placement">University of Manitoba</span></div>
+        <div class="student-row"><span>Anmol Madan</span><span class="role">Current · Co-chair</span><span class="placement">—</span></div>
+      </div>
+      <div class="subhead">Information Systems</div>
+      <div class="student-list">
+        <div class="student-row header"><span>Name</span><span>Role</span><span class="placement">First Job Placement</span></div>
+        <div class="student-row"><span>Kursad Asdemir</span><span class="role">Co-chair</span><span class="placement">University of Alberta</span></div>
+        <div class="student-row"><span>Hasan Cavusoglu</span><span class="role">Co-chair</span><span class="placement">University of British Columbia</span></div>
+      </div>
+    </div>
+    <aside class="margin-note">plus numerous doctoral committees in Marketing and IS along the way</aside>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div>
+      <h2>Get in touch</h2>
+      <p class="meta">
+        Naveen Jindal School of Management<br>
+        University of Texas at Dallas<br>
+        Richardson, TX 75080<br>
+        Phone: (972) 883-6426<br>
+        <a href="mailto:nkumar@utdallas.edu">nkumar@utdallas.edu</a>
+      </p>
+    </div>
+    <div class="meta">
+      <a href="cv.pdf">CV (PDF)</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
